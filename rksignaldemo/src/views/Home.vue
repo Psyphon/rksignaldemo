@@ -36,7 +36,8 @@
   import axios from 'axios';
 
   const signalR = require('@aspnet/signalr');
-  const apiBaseUrl = 'https://rkrkfunctionapp20210205151439.azurewebsites.net';
+  let apiBaseUrl = 'https://rkrkfunctionapp20210205151439.azurewebsites.net';
+  // apiBaseUrl = 'http://localhost:7071'
 
   export default {
     name: 'Home',
@@ -80,7 +81,8 @@
         this.createMessage(this.user, this.newMessage);
       },
       onNewMessage (message) {
-        this.data.messages = [...this.data.messages, { ...message }];
+        console.log(message);
+        this.messages = [...this.messages, { ...message }];
       },
       logError (err) {
         console.error('Error establishing connection', err);
