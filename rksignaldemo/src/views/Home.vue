@@ -59,12 +59,13 @@
     },
     methods: {
       initializeSignalR () {
+        let api = `${apiBaseUrl}/api`;
         this.connection = new signalR.HubConnectionBuilder()
-          .withUrl(`${apiBaseUrl}/api`)
+          .withUrl(api)
           .configureLogging(signalR.LogLevel.Information)
           .build();
 
-        console.log('connecting...');
+        console.log('connecting...', api);
         this.connection.start()
           .then((response) => {
             console.log('connection established', response);
